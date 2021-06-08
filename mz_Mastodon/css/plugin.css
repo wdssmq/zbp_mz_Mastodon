@@ -1,0 +1,57 @@
+/* 主要布局 */
+#mastodon-toot.mod.box div {
+  margin-top: 0;
+  font-size: 1em;
+}
+.mz-toot-list {
+  padding-right: 0.1em;
+  max-height: 527px;
+  overflow-x: auto;
+}
+.mz-toot-list::-webkit-scrollbar {
+  width: 3px;
+}
+.mz-toot-list::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+}
+.mz-toot-list:hover::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.4);
+}
+.mz-toot-list:hover::-webkit-scrollbar-track {
+  background: rgba(136, 136, 136, 0.1);
+}
+/* 内部 */
+.mz-toot,
+.mz-toot * {
+  box-sizing: border-box;
+  font-size: 15px;
+}
+.mz-toot:not(:last-child) {
+  border-bottom: 1px dotted #999;
+  margin-bottom: 0.4em;
+}
+.mz-toot .image {
+  max-width: 36px;
+  min-width: 36px;
+  margin-right: 7px;
+}
+.toot-info {
+  display: flex;
+}
+.toot-content {
+  padding: 0.3em 0;
+}
+.toot-content p {
+  word-break: break-all;
+}
+.toot-right {
+  overflow: hidden;
+}
+
+p.toot-time,
+p.toot-time a:link,
+p.toot-time a:visited {
+  font-size: 0.8em;
+  color: #606984;
+}
