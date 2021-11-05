@@ -1,5 +1,5 @@
 <?php
-function mz_Mastodon_CreadAPP($name, $url, $force = false)
+function mz_Mastodon_CreateAPP($name, $url, $force = false)
 {
   global $zbp;
   $client_id = $zbp->Config('mz_Mastodon')->client_id;
@@ -111,7 +111,7 @@ function mz_Mastodon_UpdateTootMod($toots = array(), $userInfo)
   $modName = "mastodon-toot";
   $mod = $zbp->GetModuleByFileName($modName);
   if ($mod->ID == 0) {
-    $mod->Name = "[Mastodon]嘟特模块";
+    $mod->Name = "「Mastodon」嘟特模块";
     $mod->Source = "mz_Mastodon";
     $mod->Type = "div";
     $mod->FileName = $modName;

@@ -21,7 +21,7 @@ if ($act == 'save') {
   $zbp->Config('mz_Mastodon')->tootsCount = trim(GetVars("tootsCount", "POST"));
   $zbp->SaveConfig('mz_Mastodon');
 
-  mz_Mastodon_CreadAPP($_POST["appName"], $_POST["tootSite"]);
+  mz_Mastodon_CreateAPP($_POST["appName"], $_POST["tootSite"]);
   // mz_Mastodon_Login($_POST["read_email"], $_POST["read_password"]);
   $zbp->BuildTemplate();
   $zbp->SetHint('good');
@@ -35,6 +35,8 @@ require $blogpath . 'zb_system/admin/admin_top.php';
 <div id="divMain">
   <div class="divHeader"><?php echo $blogtitle; ?></div>
   <div class="SubMenu">
+    <a href="main.php" title="首页"><span class="m-left m-now">首页</span></a>
+    <?php require "about.php"; ?>
   </div>
   <div id="divMain2">
     <form action="<?php echo BuildSafeURL("main.php?act=save"); ?>" method="post">
@@ -57,8 +59,8 @@ require $blogpath . 'zb_system/admin/admin_top.php';
         <tr>
           <td>回显：</td>
           <td>
-            <p><?php zbpform::text("client_id", $zbp->Config("mz_Mastodon")->client_id, "73%"); ?> ID</p>
-            <p><?php zbpform::text("client_secret", $zbp->Config("mz_Mastodon")->client_secret, "73%"); ?> secret</p>
+            <p><i class="readonly"></i><?php zbpform::text("client_id", $zbp->Config("mz_Mastodon")->client_id, "73%"); ?> <label for="client_id">ID</label></p>
+            <p><i class="readonly"></i><?php zbpform::text("client_secret", $zbp->Config("mz_Mastodon")->client_secret, "73%"); ?> <label for="client_secret">secret</label></p>
             <!-- <p><?php zbpform::text("access_token", $zbp->Config("mz_Mastodon")->access_token, "73%"); ?>token</p>
             <p><?php zbpform::text("token_type", $zbp->Config("mz_Mastodon")->token_type, "73%"); ?>token_type</p> -->
           </td>
@@ -99,7 +101,7 @@ require $blogpath . 'zb_system/admin/admin_top.php';
     </form>
   </div>
 </div>
-
+<script src="mz-ui/mizu.js"></script>
 <?php
 require $blogpath . 'zb_system/admin/admin_footer.php';
 RunTime();

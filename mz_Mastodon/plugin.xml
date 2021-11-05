@@ -18,12 +18,12 @@
   <email></email>
   <url></url>
 </source>
-<adapted>151740</adapted>
-<version>1.0.5</version>
+<adapted>162210</adapted>
+<version>1.0.6</version>
 <pubdate>2021-03-01</pubdate>
-<modified>2021-05-01</modified>
-<price>5.93</price>
-<phpver>5.4</phpver>
+<modified>2021-11-05</modified>
+<price>0</price>
+<phpver>7.1</phpver>
 <advanced>
   <dependency></dependency>
   <rewritefunctions></rewritefunctions>
