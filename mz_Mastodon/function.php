@@ -140,6 +140,7 @@ function mz_Mastodon_UpdateTootMod($toots = array(), $userInfo)
     $curToot = $tplToot;
     $curDta = array_intersect_key($toot, $pickList);
     $curDta["time"] = date("Y-m-d H:i:s", strtotime($curDta["created_at"]));
+    $curDta["content"] = preg_replace("/</?span[^>]*>/si", "", $curDta["content"]);
 
     foreach ($curDta as $k => $v) {
       $curToot = str_replace("-toot.{$k}-", $v, $curToot);
