@@ -10,18 +10,21 @@ function ActivePlugin_mz_Mastodon()
   Add_Filter_Plugin('Filter_Plugin_ViewAuto_Begin', 'mz_Mastodon_InsertCSS');
   Add_Filter_Plugin('Filter_Plugin_ViewFeed_End', 'mz_Mastodon_AutoRenew');
 }
+
 function mz_Mastodon_InsertCSS()
 {
   global $zbp;
   $style = mz_Mastodon_Path("css/plugin.css", "host");
   $zbp->header .= "<link rel=\"stylesheet\" href=\"{$style}\">";
 }
+
 function mz_Mastodon_AutoRenew()
 {
   global $zbp;
   $userID = $zbp->Config('mz_Mastodon')->userID;
   mz_Mastodon_ParseUsrInfo($userID);
 }
+
 function mz_Mastodon_Path($file, $t = 'path')
 {
   global $zbp;
@@ -43,6 +46,7 @@ function mz_Mastodon_Path($file, $t = 'path')
       return $result . $file;
   }
 }
+
 function InstallPlugin_mz_Mastodon()
 {
   global $zbp;
@@ -52,6 +56,7 @@ function InstallPlugin_mz_Mastodon()
     $zbp->SaveConfig('mz_Mastodon');
   }
 }
+
 function UninstallPlugin_mz_Mastodon()
 {
   global $zbp;

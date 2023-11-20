@@ -22,6 +22,10 @@ if ($act == 'save') {
   $zbp->SaveConfig('mz_Mastodon');
 
   mz_Mastodon_CreateAPP($_POST["appName"], $_POST["tootSite"]);
+
+  $userID = $zbp->Config('mz_Mastodon')->userID;
+  mz_Mastodon_ParseUsrInfo($userID, true);
+
   // mz_Mastodon_Login($_POST["read_email"], $_POST["read_password"]);
   $zbp->BuildTemplate();
   $zbp->SetHint('good');

@@ -25,6 +25,7 @@ function mz_Mastodon_CreateAPP($name, $url, $force = false)
     $zbp->SaveConfig('mz_Mastodon');
   }
 }
+
 function mz_Mastodon_Login($email, $password)
 {
   global $zbp;
@@ -43,6 +44,7 @@ function mz_Mastodon_Login($email, $password)
   $zbp->Config("mz_Mastodon")->token_type = $data["html"]["token_type"];
   $zbp->SaveConfig('mz_Mastodon');
 }
+
 function mz_Mastodon_Get($userid = "")
 {
   global $zbp;
@@ -140,7 +142,7 @@ function mz_Mastodon_UpdateTootMod($toots = array(), $userInfo)
     $curToot = $tplToot;
     $curDta = array_intersect_key($toot, $pickList);
     $curDta["time"] = date("Y-m-d H:i:s", strtotime($curDta["created_at"]));
-    $curDta["content"] = preg_replace("/<\/?span[^>]*>/si", "", $curDta["content"]);
+    $curDta["content"] = preg_replace("/<\/?span>/", "", $curDta["content"]);
 
     foreach ($curDta as $k => $v) {
       $curToot = str_replace("-toot.{$k}-", $v, $curToot);
