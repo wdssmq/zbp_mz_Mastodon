@@ -9,8 +9,28 @@
     clear: both;
   }
 
+  .is-text-bold {
+    font-weight: bold;
+  }
+
+  .is-text-red {
+    color: #d60000;
+  }
+
   #divMain2 {
     margin-bottom: 3rem;
+  }
+
+  #divMain2 p:not(:last-child) {
+    margin-bottom: .3rem;
+  }
+
+  #divMain2 code {
+    background-color: hsl(0deg, 0%, 96%);
+    color: hsl(348deg, 100%, 61%);
+    font-size: 0.875em;
+    font-weight: normal;
+    padding: 0.25em 0.5em 0.25em;
   }
 
   #divMain .SubMenu {
@@ -34,16 +54,26 @@
     opacity: 1;
   }
 
-  i.xnxf-tip-dot {
-    background-color: red;
-    border-radius: 50%;
-    position: relative;
-    top: -3px;
-    right: -3px;
-    height: 7px;
-    width: 7px;
-    margin-left: -7px;
-    padding: 0;
+  .xnxf-about-btn.tip {
+    margin-right: 50%;
+    padding: 0 1em;
+  }
+
+  .xnxf-about-btn.tip span {
+    display: none;
+  }
+
+  .xnxf-about-btn.tip::before {
+    content: " ";
+    color: red;
+  }
+
+  .xnxf-about-btn.tip.reject::before {
+    content: "点击这里跳过提示";
+  }
+
+  .xnxf-about-btn.tip.continue::before {
+    content: "需要再点一次";
   }
 
   #xnxf-about {
@@ -94,32 +124,49 @@
   }
 </style>
 <a class="xnxf-about-btn" href="javascript:;" style="float: right;" title="查看/隐藏关于">
-  <i class="xnxf-tip-dot" style="float: right"></i>
   <span class="m-right">[关 于]</span>
 </a>
 <div id="xnxf-about">
-  <p><img src="https://img.shields.io/badge/-SEO%E6%98%AF%E5%95%A5%E8%81%94%E7%9B%9F-yellowgreen" title="SEO是啥联盟" alt="SEO是啥联盟"> <a target="_blank" title="Feed-FeedsPub" href="https://feeds.pub/feed/https%3A%2F%2Fwww.wdssmq.com%2Ffeed.php"><img src="https://img.shields.io/badge/Feed-FeedsPub-brightgreen" title="Feed-FeedsPub" alt="Feed-FeedsPub"></a> <a target="_blank" title="Feed-Inoreader" href="https://www.innoreader.com/feed/https%3A%2F%2Fwww.wdssmq.com%2Ffeed.php"><img src="https://img.shields.io/badge/Feed-Inoreader-blue" title="Feed-Inoreader" alt="Feed-Inoreader"></a> <a target="_blank" title="Feed-feed.wdssmq.com" href="https://feed.wdssmq.com"><img src="https://img.shields.io/badge/Feed-feed.wdssmq.com-yellow" title="Feed-feed.wdssmq.com" alt="Feed-feed.wdssmq.com"></a> <a target="_blank" title="爱发电-@wdssmq" href="https://afdian.net/@wdssmq"><img src="https://img.shields.io/badge/%E7%88%B1%E5%8F%91%E7%94%B5-%40wdssmq-blueviolet" title="爱发电-@wdssmq" alt="爱发电-@wdssmq"></a> <a target="_blank" title="mastodon-wdssmq" href="https://wxw.moe/@wdssmq"><img src="https://img.shields.io/mastodon/follow/142218?domain=https%3A%2F%2Fwxw.moe%2F" title="mastodon-wdssmq" alt="mastodon-wdssmq"></a> <a target="_blank" title="QQ-349467624" href="https://wpa.qq.com/msgrd?v=3&uin=349467624&site=qq&menu=yes"><img src="https://img.shields.io/badge/QQ-349467624-0086F9" title="QQ-349467624" alt="QQ-349467624"></a></p>
   <!-- -------- -->
   <p>QQ：349467624 <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=349467624&amp;site=qq&amp;menu=yes" title="沉冰浮水的QQ"><img src="https://www.wdssmq.com/zb_users/logos/qq_button.png" alt="QQ" title="QQ"></a></p>
-  <p>博客：<a target="_blank" href="https://www.wdssmq.com" title="沉冰浮水">https://www.wdssmq.com</a></p>
-  <p>Feed：<a target="_blank" href="https://feed.wdssmq.com" title="Feed">https://feed.wdssmq.com</a></p>
-  <p>bilibili：<a target="_blank" href="https://space.bilibili.com/44744006" title="bilibili">https://space.bilibili.com/44744006</a></p>
-  <p>知乎：<a target="_blank" href="https://www.zhihu.com/people/wdssmq" title="知乎">https://www.zhihu.com/people/wdssmq</a></p>
-  <p>GitHub：<a target="_blank" href="https://github.com/wdssmq" title="GitHub">https://github.com/wdssmq</a></p>
-  <p>GreasyFork：<a target="_blank" href="https://greasyfork.org/zh-CN/users/6865-wdssmq" title="GreasyFork">https://greasyfork.org/zh-CN/users/6865-wdssmq</a></p>
+
+  <p>博客：<a href="https://www.wdssmq.com" title="沉冰浮水的博客">https://www.wdssmq.com</a></p>
+
+  <p class="is-text-bold">Feed：<a href="http://feed.wdssmq.com" title="Feed_沉冰浮水">https://feed.wdssmq.com</a></p>
+
+  <p>嘟特：<a href="https://wxw.moe/users/wdssmq" title="沉冰浮水 - 呜呜 w(&gt; ʌ &lt;)w">https://wxw.moe/users/wdssmq</a></p>
+
+  <p>哔哩哔哩：<a href="https://space.bilibili.com/44744006" title="沉冰浮水_哔哩哔哩">https://space.bilibili.com/44744006</a></p>
+
+  <p>知乎：<a href="https://www.zhihu.com/people/wdssmq" title="沉冰浮水_知乎">https://www.zhihu.com/people/wdssmq</a></p>
+
+  <p>GitHub：<a href="https://github.com/wdssmq" title="沉冰浮水 - GitHub">https://github.com/wdssmq</a></p>
+
+  <!-- <p>GreasyFork：<a href="https://greasyfork.org/zh-CN/users/6865-wdssmq" title="wdsssmq - GreasyFork">https://greasyfork.org/zh-CN/users/6865-wdssmq</a></p> -->
+
   <hr><!-- -------- -->
-  <p>爱发电：<a target="_blank" href="https://afdian.net/@wdssmq" title="爱发电">https://afdian.net/@wdssmq</a></p>
-  <p>[AD：<a title="老薛主机" target="_blank" href="https://my.laoxuehost.net/aff.php?aff=294">PHP美国空间</a> 优惠码：15off-xnxf ]</p>
+
+  <p>文章推荐：「<a target="_blank" href="https://www.wdssmq.com/post/20201231613.html" title="「言说」RSS 是一种态度！！">RSS 是一种态度</a>」「<a href="https://www.wdssmq.com/post/20200617652.html" target="_blank" title="「水坑」系列教程索引_电脑网络_沉冰浮水">「水坑」系列教程索引_电脑网络_沉冰浮水</a>」</p>
+
+  <hr><!-- -------- -->
+
+  <p>爱发电：<a target="_blank" href="https://afdian.net/a/wdssmq" title="爱发电">https://afdian.net/a/wdssmq</a></p>
+
+  <p>[AD：<a title="老薛主机" target="_blank" href="https://my.laoxuehost.net/aff.php?aff=294">PHP 美国空间</a> 优惠码：15off-xnxf ]</p>
+
   <p>[AD：<a title="主机云" target="_blank" href="https://my.hostyun.com/page.aspx?c=referral&u=8680">vps-主机云</a>]</p>
-  <p>[AD：<a title="Vultr" target="_blank" href="https://www.vultr.com/?ref=7663955">vps-Vultr</a>]</p>
+
+  <p>更多广告：<a title="Vultr" target="_blank" href="https://www.wdssmq.com/category/%E5%B9%BF%E5%91%8A%E6%85%8E%E5%85%A5/">广告慎入 - 沉冰浮水</a></p>
+
+  <p>更多应用：<a href="https://app.zblogcn.com/?auth=6401c4a7-89cd-48f9-a68b-d6464d8c3bc8" target="_blank" title="沉冰浮水 - Z-Blog 应用中心">沉冰浮水 - Z-Blog 应用中心</a></p>
+
   <hr><!-- -------- -->
-  <p>一款基于QueryList V4的Z-Blog采集插件：<a href="https://github.com/wdssmq/kumo-for-zblog" target="_blank" title="wdssmq/kumo-for-zblog: 一款基于QueryList V4的Z-Blog采集插件">https://github.com/wdssmq/kumo-for-zblog</a></p>
-  <p>某理念崩坏的采集插件 - Z-Blog 应用中心：<a href="https://app.zblogcn.com/?id=17788" target="_blank" title="某理念崩坏的采集插件 - Z-Blog 应用中心">https://app.zblogcn.com/?id=17788</a></p>
+
   <div style="min-height: 37px;"></div>
 </div>
 <div id="xnxf-contrib" class="in">
   <p>虽然暂时还没有做区免费 Or 收费的判断，假定您是免费获取到的，而这个插件对您有用，请支付合理费用。</p>
-  <p><b>点击上方「关于」可关闭此提示，137天内不再显示。</b></p>
+  <p><b>点击上方按钮可关闭此提示，137 天内不再显示。</b></p>
   <div id="xnxf-qr-box">
     <img src="https://cdn.jsdelivr.net/gh/wdssmq/wdssmq@main/doc/qr-qq.png" alt="qr-qq" title="qr-qq" style="max-width:100%;">
     <img src="https://cdn.jsdelivr.net/gh/wdssmq/wdssmq@main/doc/qr-wx.png" alt="qr-wx" title="qr-wx" style="max-width:100%;">
@@ -130,50 +177,92 @@
 <div class="clearfix"></div>
 <script type="text/javascript">
   $(function() {
-    const mz_blogtitle = '<?php echo $blogtitle; ?>';
-    const mz_cookie = GetCookie("xnxf-about-tip") || "";
+    const mz_appId = location.pathname.match(/zb_users\/[^\/]+\/([^\/]+)/)[1];
+    const mz_cookie = GetCookie("xnxf-about-tip") || "<?php echo GetVars("xnxf-about-tip", "COOKIE") ?>" || "";
 
-    let mz_ckeSet = 0;
-
-    if (mz_cookie.indexOf(mz_blogtitle) > -1 && 1 == 1) {
-      mz_ckeSet = 1;
-      fnHideTipDot();
-    } else {
-      $("#divMain2,.content-box-content").addClass("relative xnxf-fade");
-      let $elWrap;
-      if ($(".content-box-content").length > 0) {
-        $elWrap = $(".content-box-content");
-      } else {
-        $elWrap = $("#divMain2");
+    const mz_about = {
+      appId: mz_appId,
+      cookie: mz_cookie,
+      status: "def",
+      // 检查是否通过
+      _check() {
+        if (mz_cookie.indexOf(mz_appId) > -1 && 1 == 1) {
+          mz_about.status = "pass";
+          return true;
+        } else {
+          mz_about.status = "reject";
+          return false;
+        }
+      },
+      // 写入 cookie
+      _setCookie() {
+        SetCookie('xnxf-about-tip', `${mz_cookie},${mz_appId}`, 137)
+      },
+      // 切换提示
+      _toggleTip() {
+        // console.log(mz_about.status);
+        const $btn = $(".xnxf-about-btn");
+        $btn.removeClass(["tip", "reject", "continue"]);
+        if (mz_about.status === "pass") {
+          return;
+        }
+        $btn.addClass(["tip", mz_about.status]);
+      },
+      // 状态切换封装
+      _upStatus(to = "continue") {
+        mz_about.status = to;
+        // console.log(to);
+        mz_about._toggleTip();
+      },
+      // 检查不通过时强制显示
+      _forceShow() {
+        $("#divMain2,.content-box-content").addClass("relative xnxf-fade");
+        let $elWrap;
+        if ($(".content-box-content").length > 0) {
+          $elWrap = $(".content-box-content");
+        } else {
+          $elWrap = $("#divMain2");
+        }
+        $("#xnxf-contrib").appendTo($elWrap).addClass("absolute");
+        mz_about._toggleTip();
+      },
+      // 切换显示
+      _aboutToggle(inTab = false) {
+        // 对于 tab 页，再次点击切换至默认 tab
+        if (inTab && mz_about.status === "continue") {
+          $("a.default-tab").click();
+        }
+        // 检查不通过时，需要再次点击切换，同时更新 cookie
+        if (mz_about.status === "reject") {
+          mz_about._upStatus("continue");
+          mz_about._setCookie();
+        } else {
+          mz_about._upStatus("pass");
+        }
+        $(".absolute").removeClass("absolute");
+        $(".xnxf-fade").removeClass("xnxf-fade");
+        if (inTab) {
+          $("#xnxf-about,#xnxf-contrib").slideDown();
+        } else {
+          $("#divMain2,#xnxf-about,#xnxf-contrib").slideToggle();
+        }
+      },
+      // 主函数
+      _main() {
+        mz_about._check();
+        if (mz_about.status !== "pass") {
+          mz_about._forceShow();
+        }
       }
-      $("#xnxf-contrib").appendTo($elWrap).addClass("absolute");
     }
 
-    function fnHideTipDot() {
-      $('.xnxf-tip-dot').css({
-        opacity: 0
-      });
-    }
-
-    function fnAboutToggle(inTab = false) {
-      $(".absolute").removeClass("absolute");
-      $(".xnxf-fade").removeClass("xnxf-fade");
-      if (inTab) {
-        $("#xnxf-about,#xnxf-contrib").slideDown();
-      } else {
-        fnHideTipDot();
-        $("#divMain2,#xnxf-about,#xnxf-contrib").slideToggle();
-      }
-      if (mz_ckeSet == 0) {
-        SetCookie('xnxf-about-tip', `${mz_cookie},${mz_blogtitle}`, 137)
-      }
-    }
+    mz_about._main();
 
     $(".xnxf-about-btn").click(function() {
       if ($(this).hasClass("tab-btn")) {
-        fnAboutToggle(1);
+        mz_about._aboutToggle(true);
       } else {
-        fnAboutToggle();
+        mz_about._aboutToggle();
       }
     });
   });
