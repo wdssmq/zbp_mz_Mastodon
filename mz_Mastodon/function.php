@@ -155,10 +155,10 @@ function mz_Mastodon_UpdateTootMod($toots = array(), $userInfo)
   $mod->Save();
 }
 
-function mz_Mastodon_UsrInfoDisplay($userID)
+function mz_Mastodon_UsrInfoDisplay($userID, $force = false)
 {
   $rtl = "";
-  if (empty($userID)) {
+  if (empty($userID) || !$force) {
     return "";
   }
   foreach (mz_Mastodon_ParseUsrInfo($userID) as $key => $value) {
