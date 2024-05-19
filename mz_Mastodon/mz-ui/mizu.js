@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
   // tabs
   function fnToggleTab() {
     if (location.hash !== "") {
@@ -9,7 +9,7 @@ $(function () {
     }
   }
   fnToggleTab();
-  $(".content-box-tabs a").click(function () {
+  $(".content-box-tabs a").click(function() {
     // alert(this.href);
     window.history.pushState(null, null, this.href.replace(/#tab1/, ""));
   });
@@ -24,41 +24,41 @@ $(function () {
     // $el.select();
   };
   // 因为是在 zblog 里选项器用的相邻
-  $(".focus + *").mouseenter(function (i) {
+  $(".focus + *").mouseenter(function(i) {
     $(this).focus();
   });
-  $(".placeholder").each(function (i) {
+  $(".placeholder").each(function(i) {
     const str = $(this).data("placeholder");
     if (str) {
       const $el = $(this).next("*");
       $el.attr("placeholder", str);
     }
   });
-  $(".auto-select").each(function (i) {
+  $(".auto-select").each(function(i) {
     const $next = $(this).next("*");
     $next.addClass("auto-select");
   });
   $(".readonly + *")
-    .click(function () {
+    .click(function() {
       const _this = this;
       fnReCover($(this));
-      setTimeout(function () {
+      setTimeout(function() {
         if ($(_this).hasClass("auto-select")) {
           $(_this).select();
         }
       }, 150);
     })
-    .dblclick(function () {
+    .dblclick(function() {
       $(this).select();
     })
-    .mouseenter(function () {
+    .mouseenter(function() {
       fnReCover($(this));
     })
-    .keyup(function () {
+    .keyup(function() {
       fnReCover($(this));
     })
-    .change(function () {
+    .change(function() {
       fnReCover($(this));
     });
-    // .attr("readonly", 1);
+  // .attr("readonly", 1);
 });
