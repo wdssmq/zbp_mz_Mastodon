@@ -71,6 +71,25 @@ function mz_Mastodon_Get($userid = "")
   return array("code" => 404);
 }
 
+// 缓存用户头像到本地
+function mz_Mastodon_CacheAvatar($remoteUrl)
+{
+  $localPath = mz_Mastodon_Path("usr/avatar.png", "path");
+  // 获取远程头像
+  $http = Network::Create();
+  $http->open("get", $remoteUrl);
+  $http->send();
+  if ($http->status != 200) {
+    $avatarUrl = $remoteUrl;
+    return $avatarUrl;
+  } else {
+    $httpRes = $http->responseText;
+  }
+  file_put_contents($localPath, $httpRes);
+  $avatarUrl = mz_Mastodon_Path("usr/avatar.png", "host");
+  return $avatarUrl;
+}
+
 function mz_Mastodon_ParseUsrInfo($userID, $force = false)
 {
   global $zbp;
@@ -95,6 +114,8 @@ function mz_Mastodon_ParseUsrInfo($userID, $force = false)
       // 用户信息获取
       $account = $data[0]["account"];
       $userInfo = array_intersect_key($account, $pickList);
+      // 头像缓存
+      $userInfo["avatar"] = mz_Mastodon_CacheAvatar($userInfo["avatar"]);
       // 写入侧栏
       mz_Mastodon_UpdateTootMod($data, $userInfo);
       // 缓存到配置项

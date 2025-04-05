@@ -55,6 +55,10 @@ function InstallPlugin_mz_Mastodon()
     $zbp->Config('mz_Mastodon')->tootsCount = 10;
     $zbp->SaveConfig('mz_Mastodon');
   }
+  $dir = mz_Mastodon_Path("usr", "path");
+  if (!is_dir($dir)) {
+    @mkdir($dir,0755);
+  }
 }
 
 function UninstallPlugin_mz_Mastodon()
